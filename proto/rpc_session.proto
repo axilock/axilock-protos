@@ -1,0 +1,35 @@
+syntax = "proto3";
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "seckrit-backend/pb";
+
+message CreateAuthSessionRequest {
+  string inittoken = 2;
+}
+
+message CreateAuthSessionResponse {
+  string org = 1;
+  string user_id = 2;
+  string cli_auth_token = 3;
+  google.protobuf.Timestamp cliauth_token_expiry = 4;
+}
+
+message CreateCommitSessionTokenRequest {
+  string repourl = 1;
+  string cli_auth_token = 3;
+}
+
+message CreateCommitSessionTokenResponse {
+  string session_id = 1;
+  google.protobuf.Timestamp cliauth_token_expiry = 4;
+}
+
+
+service SessionService {
+  rpc CreateAuthSession(CreateAuthSessionRequest) 
+          returns (CreateAuthSessionResponse);
+  rpc CreateCommitSessionToken(CreateCommitSessionTokenRequest) 
+          returns (CreateCommitSessionTokenResponse);
+}

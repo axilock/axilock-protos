@@ -1,0 +1,47 @@
+syntax = "proto3";
+package pb;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "user.proto";
+
+option go_package = "seckrit-backend/pb";
+
+message CreateUserRequest {
+  string email = 1;
+  string username = 2;
+  string password = 3;
+  bool    init =  4;
+}
+
+message CreateUserResponse {
+  User user = 1;
+  bool init = 2;
+}
+
+message LoginUserRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginUserResponse {
+  string username = 1;
+  string access_token = 2;
+  google.protobuf.Timestamp access_token_expiry = 3;
+}
+
+service UserService {
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {
+    option (google.api.http) = {
+                post: "/user/create"
+                body: "*" 
+  };}
+  rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {
+    option (google.api.http) = {
+                post: "/user/login"
+                body: "*"
+  };}
+}
+
+
+

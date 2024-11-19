@@ -1,0 +1,28 @@
+syntax = "proto3";
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "seckrit-backend/pb";
+
+message HealthRequest {
+  string clientver = 1;
+  string org = 2;
+  string auth_token = 3;
+  string repourl = 4;
+}
+
+message HealthResponse {
+  string backendver = 1;
+  string latest_clientver = 2;
+  bool toupdate = 3;
+  string hookslist = 4; //TODO : handle case when hooks are updated
+  string cliupdatepath = 5;
+  string systemstatus = 6;
+  google.protobuf.Timestamp created_at = 7;
+}
+
+
+service HealthService {
+  rpc DoHealthCheck(HealthRequest) returns (HealthResponse);
+}
