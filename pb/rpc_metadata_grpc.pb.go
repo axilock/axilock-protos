@@ -27,7 +27,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MetadataServiceClient interface {
-	InitMetadata(ctx context.Context, in *MetadataInitRequest, opts ...grpc.CallOption) (*MetadataInitResponse, error)
+	InitMetadata(ctx context.Context, in *InstallerInitRequest, opts ...grpc.CallOption) (*InstallerInitResponse, error)
 	RepoMetadata(ctx context.Context, in *MetadataRepoRequest, opts ...grpc.CallOption) (*MetadataRepoResponse, error)
 }
 
@@ -39,9 +39,9 @@ func NewMetadataServiceClient(cc grpc.ClientConnInterface) MetadataServiceClient
 	return &metadataServiceClient{cc}
 }
 
-func (c *metadataServiceClient) InitMetadata(ctx context.Context, in *MetadataInitRequest, opts ...grpc.CallOption) (*MetadataInitResponse, error) {
+func (c *metadataServiceClient) InitMetadata(ctx context.Context, in *InstallerInitRequest, opts ...grpc.CallOption) (*InstallerInitResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MetadataInitResponse)
+	out := new(InstallerInitResponse)
 	err := c.cc.Invoke(ctx, MetadataService_InitMetadata_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -63,7 +63,7 @@ func (c *metadataServiceClient) RepoMetadata(ctx context.Context, in *MetadataRe
 // All implementations must embed UnimplementedMetadataServiceServer
 // for forward compatibility.
 type MetadataServiceServer interface {
-	InitMetadata(context.Context, *MetadataInitRequest) (*MetadataInitResponse, error)
+	InitMetadata(context.Context, *InstallerInitRequest) (*InstallerInitResponse, error)
 	RepoMetadata(context.Context, *MetadataRepoRequest) (*MetadataRepoResponse, error)
 	mustEmbedUnimplementedMetadataServiceServer()
 }
@@ -75,7 +75,7 @@ type MetadataServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMetadataServiceServer struct{}
 
-func (UnimplementedMetadataServiceServer) InitMetadata(context.Context, *MetadataInitRequest) (*MetadataInitResponse, error) {
+func (UnimplementedMetadataServiceServer) InitMetadata(context.Context, *InstallerInitRequest) (*InstallerInitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InitMetadata not implemented")
 }
 func (UnimplementedMetadataServiceServer) RepoMetadata(context.Context, *MetadataRepoRequest) (*MetadataRepoResponse, error) {
@@ -103,7 +103,7 @@ func RegisterMetadataServiceServer(s grpc.ServiceRegistrar, srv MetadataServiceS
 }
 
 func _MetadataService_InitMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MetadataInitRequest)
+	in := new(InstallerInitRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -115,7 +115,7 @@ func _MetadataService_InitMetadata_Handler(srv interface{}, ctx context.Context,
 		FullMethod: MetadataService_InitMetadata_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetadataServiceServer).InitMetadata(ctx, req.(*MetadataInitRequest))
+		return srv.(MetadataServiceServer).InitMetadata(ctx, req.(*InstallerInitRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
