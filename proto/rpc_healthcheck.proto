@@ -22,7 +22,17 @@ message HealthResponse {
   google.protobuf.Timestamp created_at = 7;
 }
 
+message ClientUpdateRequest {
+  string client_ver = 1;
+}
+
+message ClientUpdateResponse {
+  string to_update = 1;
+  string latest_clientver = 2;
+  string cliupdatepath = 3;
+}
 
 service HealthService {
+  rpc ClientUpdateRpc(ClientUpdateRequest) returns (ClientUpdateResponse);
   rpc DoHealthCheck(HealthRequest) returns (HealthResponse);
 }
