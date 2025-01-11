@@ -1,0 +1,25 @@
+syntax = "proto3";
+package pb;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "seckrit-backend/pb";
+
+message GetIntegrationsRequest {
+  string frontend_ver = 1;
+}
+
+message IntegrationType {
+  string name = 1;
+  bool status = 2;
+  string action_url = 3;
+}
+
+message GetIntegrationsResponse {
+  repeated IntegrationType integrations = 1;
+}
+
+
+service IntegrationsService {
+  rpc GetIntegrations(GetIntegrationsRequest) returns (GetIntegrationsResponse);
+}
