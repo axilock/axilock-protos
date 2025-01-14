@@ -22,8 +22,29 @@ message HealthResponse {
   google.protobuf.Timestamp created_at = 7;
 }
 
+enum ARCH {
+  ARCH_UNSPECIFIED = 0;
+  ARCH_ARM64 = 1;
+  ARCH_AMD64 = 2;
+}
+
+enum OS {
+  OS_UNSPECIFIED = 0;
+  OS_WINDOWS = 1;
+  OS_LINUX = 2;
+  OS_DARWIN = 3;
+}
+
 message ClientUpdateRequest {
+  enum Env {
+    ENV_UNSPECIFIED = 0;
+    ENV_DEV = 1;
+    ENV_RELEASE = 2;
+  }
   string client_ver = 1;
+  OS os = 2;
+  ARCH arch = 3;
+  Env environment  = 4;
 }
 
 message ClientUpdateResponse {
