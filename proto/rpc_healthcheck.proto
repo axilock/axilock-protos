@@ -35,12 +35,13 @@ enum OS {
   OS_DARWIN = 3;
 }
 
+enum Env {
+  ENV_UNSPECIFIED = 0;
+  ENV_DEV = 1;
+  ENV_RELEASE = 2;
+}
+
 message ClientUpdateRequest {
-  enum Env {
-    ENV_UNSPECIFIED = 0;
-    ENV_DEV = 1;
-    ENV_RELEASE = 2;
-  }
   string client_ver = 1;
   OS os = 2;
   ARCH arch = 3;
