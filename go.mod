@@ -1,4 +1,4 @@
-module github.com/seckrit/sekrit-protos
+module github.com/axilock/axilock-protos
 
 go 1.23.2
 

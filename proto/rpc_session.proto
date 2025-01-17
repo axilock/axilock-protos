@@ -3,7 +3,7 @@ package pb;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "seckrit-backend/pb";
+option go_package = "axilock-backend/pb";
 
 message CreateAuthSessionRequest {
   string inittoken = 2;
