@@ -49,7 +49,7 @@ message ClientUpdateRequest {
 }
 
 message ClientUpdateResponse {
-  string to_update = 1;
+  bool to_update = 1;
   string latest_clientver = 2;
   string cliupdatepath = 3;
 }
