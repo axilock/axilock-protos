@@ -1,0 +1,23 @@
+syntax = "proto3";
+package pb;
+
+option go_package = "axilock-backend/pb";
+
+
+
+message SecretAlertRequest {
+  string filename = 1;
+  string repo = 2;
+  int64 lineno = 3;
+  string commitid = 4;
+  string secrettype = 5;
+  bool is_verified = 6;
+}
+
+message SecretAlertResponse {
+  bool success = 1;
+}
+
+service AlertService {
+  rpc SecretAlert(SecretAlertRequest) returns (SecretAlertResponse) {}
+}
