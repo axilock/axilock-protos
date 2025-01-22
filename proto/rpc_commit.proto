@@ -12,7 +12,6 @@ message SendCommitDataRequest {
     google.protobuf.Timestamp commit_time = 3;
   }
   string metadata = 1;
-  string session_id = 2;
   string repo_url = 3;
   repeated CommitObjects commits = 4;
   google.protobuf.Timestamp push_time = 5;

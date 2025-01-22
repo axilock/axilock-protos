@@ -16,20 +16,8 @@ message CreateAuthSessionResponse {
   google.protobuf.Timestamp cliauth_token_expiry = 4;
 }
 
-message CreateCommitSessionTokenRequest {
-  string repourl = 1;
-  string cli_auth_token = 3;
-}
-
-message CreateCommitSessionTokenResponse {
-  string session_id = 1;
-  google.protobuf.Timestamp cliauth_token_expiry = 4;
-}
-
 
 service SessionService {
   rpc CreateAuthSession(CreateAuthSessionRequest) 
           returns (CreateAuthSessionResponse);
-  rpc CreateCommitSessionToken(CreateCommitSessionTokenRequest) 
-          returns (CreateCommitSessionTokenResponse);
 }
