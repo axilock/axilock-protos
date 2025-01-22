@@ -21,7 +21,7 @@ message InstallerInitResponse {
 }
 
 message MetadataRepoRequest {
-  string repourl = 1;
+  string repo_url = 1;
   string metadata = 2;
 }
 

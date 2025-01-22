@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 option go_package = "axilock-backend/pb";
 
 message CreateAuthSessionRequest {
-  string inittoken = 2;
+  string init_token = 2;
 }
 
 message CreateAuthSessionResponse {

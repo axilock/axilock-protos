@@ -8,12 +8,12 @@ option go_package = "axilock-backend/pb";
 message SendCommitDataRequest {
   message CommitObjects {
     string commit_id = 1;
-    string commitauthor = 2;
-    google.protobuf.Timestamp committime = 3;
+    string commit_author = 2;
+    google.protobuf.Timestamp commit_time = 3;
   }
   string metadata = 1;
-  string sessionid = 2;
-  string repourl = 3;
+  string session_id = 2;
+  string repo_url = 3;
   repeated CommitObjects commits = 4;
   google.protobuf.Timestamp push_time = 5;
 }

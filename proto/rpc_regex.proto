@@ -16,13 +16,13 @@ message SyncRegexDataResponse {
 
 message RegexData {
   string desc = 1;
-  string regexstr = 2;
+  string regex_str = 2;
   int32 version = 3;
 }
 
 message CreateRegexRequest {
   string type = 1;
-  string regexstr = 2;
+  string regex_str = 2;
   string desc = 3;
 }
 

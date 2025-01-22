@@ -3,15 +3,14 @@ package pb;
 
 option go_package = "axilock-backend/pb";
 
-
-
 message SecretAlertRequest {
-  string filename = 1;
+  string file_name = 1;
   string repo = 2;
-  int64 lineno = 3;
-  string commitid = 4;
-  string secrettype = 5;
+  int64 line_number = 3;
+  string commit_id = 4;
+  string secret_type = 5;
   bool is_verified = 6;
+  string fragment = 7;
 }
 
 message SecretAlertResponse {
