@@ -12,3 +12,6 @@ message RunnerScanResponse {
   string repo_url = 1;
 }
 
+service ScanService {
+  rpc StartRepoScan(RunnerScanRequest) returns (RunnerScanResponse);
+}
