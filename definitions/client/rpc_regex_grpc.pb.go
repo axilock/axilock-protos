@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.3
-// source: rpc_regex.proto
+// source: client/rpc_regex.proto
 
-package pb
+package clientpb
 
 import (
 	context "context"
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	RegexService_CreateRegex_FullMethodName = "/pb.RegexService/CreateRegex"
-	RegexService_SyncRegex_FullMethodName   = "/pb.RegexService/SyncRegex"
+	RegexService_CreateRegex_FullMethodName = "/client.RegexService/CreateRegex"
+	RegexService_SyncRegex_FullMethodName   = "/client.RegexService/SyncRegex"
 )
 
 // RegexServiceClient is the client API for RegexService service.
@@ -142,7 +142,7 @@ func _RegexService_SyncRegex_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var RegexService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.RegexService",
+	ServiceName: "client.RegexService",
 	HandlerType: (*RegexServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -155,5 +155,5 @@ var RegexService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "rpc_regex.proto",
+	Metadata: "client/rpc_regex.proto",
 }

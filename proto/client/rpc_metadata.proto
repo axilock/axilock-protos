@@ -1,9 +1,9 @@
 syntax = "proto3";
-package pb;
+package client;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "axilock-backend/pb";
+option go_package = "axilock-runner/clientpb";
 
 message InstallerInitRequest {
   enum State {

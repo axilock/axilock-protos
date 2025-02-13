@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.3
-// source: rpc_metadata.proto
+// source: client/rpc_metadata.proto
 
-package pb
+package clientpb
 
 import (
 	context "context"
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	MetadataService_InitMetadata_FullMethodName = "/pb.MetadataService/InitMetadata"
-	MetadataService_RepoMetadata_FullMethodName = "/pb.MetadataService/RepoMetadata"
+	MetadataService_InitMetadata_FullMethodName = "/client.MetadataService/InitMetadata"
+	MetadataService_RepoMetadata_FullMethodName = "/client.MetadataService/RepoMetadata"
 )
 
 // MetadataServiceClient is the client API for MetadataService service.
@@ -142,7 +142,7 @@ func _MetadataService_RepoMetadata_Handler(srv interface{}, ctx context.Context,
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var MetadataService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.MetadataService",
+	ServiceName: "client.MetadataService",
 	HandlerType: (*MetadataServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -155,5 +155,5 @@ var MetadataService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "rpc_metadata.proto",
+	Metadata: "client/rpc_metadata.proto",
 }

@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.3
-// source: rpc_session.proto
+// source: client/rpc_session.proto
 
-package pb
+package clientpb
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	SessionService_CreateAuthSession_FullMethodName = "/pb.SessionService/CreateAuthSession"
+	SessionService_CreateAuthSession_FullMethodName = "/client.SessionService/CreateAuthSession"
 )
 
 // SessionServiceClient is the client API for SessionService service.
@@ -108,7 +108,7 @@ func _SessionService_CreateAuthSession_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.SessionService",
+	ServiceName: "client.SessionService",
 	HandlerType: (*SessionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -117,5 +117,5 @@ var SessionService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "rpc_session.proto",
+	Metadata: "client/rpc_session.proto",
 }

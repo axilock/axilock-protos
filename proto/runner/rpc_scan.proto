@@ -1,0 +1,14 @@
+syntax = "proto3";
+package runner;
+
+option go_package = "axilock-runner/runnerpb";
+
+
+message RunnerScanRequest {
+  string request = 1;
+}
+  
+message RunnerScanResponse {
+  string repo_url = 1;
+}
+

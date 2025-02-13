@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.3
-// source: rpc_healthcheck.proto
+// source: client/rpc_healthcheck.proto
 
-package pb
+package clientpb
 
 import (
 	context "context"
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	HealthService_ClientUpdateRpc_FullMethodName = "/pb.HealthService/ClientUpdateRpc"
-	HealthService_DoHealthCheck_FullMethodName   = "/pb.HealthService/DoHealthCheck"
+	HealthService_ClientUpdateRpc_FullMethodName = "/client.HealthService/ClientUpdateRpc"
+	HealthService_DoHealthCheck_FullMethodName   = "/client.HealthService/DoHealthCheck"
 )
 
 // HealthServiceClient is the client API for HealthService service.
@@ -142,7 +142,7 @@ func _HealthService_DoHealthCheck_Handler(srv interface{}, ctx context.Context, 
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var HealthService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.HealthService",
+	ServiceName: "client.HealthService",
 	HandlerType: (*HealthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -155,5 +155,5 @@ var HealthService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "rpc_healthcheck.proto",
+	Metadata: "client/rpc_healthcheck.proto",
 }

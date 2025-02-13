@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.3
-// source: rpc_commit.proto
+// source: client/rpc_commit.proto
 
-package pb
+package clientpb
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CommitDataService_SendCommitData_FullMethodName = "/pb.CommitDataService/SendCommitData"
+	CommitDataService_SendCommitData_FullMethodName = "/client.CommitDataService/SendCommitData"
 )
 
 // CommitDataServiceClient is the client API for CommitDataService service.
@@ -108,7 +108,7 @@ func _CommitDataService_SendCommitData_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CommitDataService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.CommitDataService",
+	ServiceName: "client.CommitDataService",
 	HandlerType: (*CommitDataServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -117,5 +117,5 @@ var CommitDataService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "rpc_commit.proto",
+	Metadata: "client/rpc_commit.proto",
 }

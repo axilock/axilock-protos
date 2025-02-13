@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.29.3
-// source: rpc_alerts.proto
+// source: client/rpc_alerts.proto
 
-package pb
+package clientpb
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AlertService_SecretAlert_FullMethodName = "/pb.AlertService/SecretAlert"
+	AlertService_SecretAlert_FullMethodName = "/client.AlertService/SecretAlert"
 )
 
 // AlertServiceClient is the client API for AlertService service.
@@ -108,7 +108,7 @@ func _AlertService_SecretAlert_Handler(srv interface{}, ctx context.Context, dec
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AlertService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.AlertService",
+	ServiceName: "client.AlertService",
 	HandlerType: (*AlertServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -117,5 +117,5 @@ var AlertService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "rpc_alerts.proto",
+	Metadata: "client/rpc_alerts.proto",
 }
