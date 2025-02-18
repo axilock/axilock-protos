@@ -18,12 +18,14 @@ message RegexData {
   string desc = 1;
   string regex_str = 2;
   int32 version = 3;
+  string name = 4;
 }
 
 message CreateRegexRequest {
   string type = 1;
   string regex_str = 2;
   string desc = 3;
+  string name = 4;
 }
 
 message CreateRegexResponse {
