@@ -5,19 +5,14 @@ import "google/protobuf/timestamp.proto";
 
 option go_package = "axilock-runner/clientpb";
 
-message CreateAuthSessionRequest {
-  string init_token = 2;
-}
+message CreateAuthSessionRequest { string init_token = 1; }
 
 message CreateAuthSessionResponse {
-  string org = 1;
-  string user_id = 2;
-  string cli_auth_token = 3;
-  google.protobuf.Timestamp cliauth_token_expiry = 4;
+  string cli_auth_token = 1;
+  google.protobuf.Timestamp cliauth_token_expiry = 2;
 }
 
-
 service SessionService {
-  rpc CreateAuthSession(CreateAuthSessionRequest) 
-          returns (CreateAuthSessionResponse);
+  rpc CreateAuthSession(CreateAuthSessionRequest)
+      returns (CreateAuthSessionResponse);
 }
